@@ -14,4 +14,10 @@ resource symbolicname 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   
   }
 }
+resource blobContainer 'Microsoft.Storage/storageAccounts/blobServices/containers@2023-01-01' = {
+  name: '${symbolicname.name}/default/container' 
+  properties: {
+    publicAccess: 'Blob'
+  }
+}
 

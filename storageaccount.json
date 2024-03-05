@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.25.53.49325",
-      "templateHash": "13365845750135620895"
+      "templateHash": "16645605076027702810"
     }
   },
   "resources": [
@@ -20,11 +20,22 @@
       "kind": "BlobStorage",
       "properties": {
         "accessTier": "Cool",
-        "allowBlobPublicAccess": false,
+        "allowBlobPublicAccess": true,
         "allowCrossTenantReplication": true,
         "allowedCopyScope": "AAD",
         "allowSharedKeyAccess": true
       }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2023-01-01",
+      "name": "[format('{0}/default/container', 'caterinastorage')]",
+      "properties": {
+        "publicAccess": "Blob"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', 'caterinastorage')]"
+      ]
     }
   ]
 }
