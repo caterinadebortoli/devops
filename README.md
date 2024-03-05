@@ -129,5 +129,7 @@ Task 2: Create a Resource Template for it
 [Resource Template](Userstory1/appservice.json)
 
 Task 3: Create Parameter Files for dev, test and prod resources 
+
+
 Task 4: Write a PowerShell Script to deploy all stages. You want to only deploy one stage per execution (./createWebApp.ps1 -Environment dev) 
 Task 5: short documentation why you choose the resource and what other options you found. Compare the different Features 
