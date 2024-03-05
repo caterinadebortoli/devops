@@ -142,7 +142,7 @@ Task 4: Write a PowerShell Script to deploy all stages. You want to only deploy 
 
             ./createWebApp.ps1 -Environment dev
 
-![DevImage](images/9.png)
+![DevImage](images/10.png)
 
             ./createWebApp.ps1 -Environment prod
 
