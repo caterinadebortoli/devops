@@ -70,6 +70,11 @@ They allow you to connect to resources that support Azure AD authentication, but
 
 #### TASK 1
 - Install Visual Studio Code and Bicep for Resource Templates
+
+![IMGBICEP](images/1.png)
+
+![IMGBICEP](images/2.png)
+  
 - Understand Bicep [Bicep language for deploying Azure resources - Azure Resource Manager | Microsoft Docs](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 - Install Powershell Core with Azure Extension:
   [Installing PowerShell on Windows - PowerShell | Microsoft Docs ](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2)
@@ -81,12 +86,32 @@ They allow you to connect to resources that support Azure AD authentication, but
   
       Connect-AzAccount
 
+  ![IMGBICEP](images/3.png)
+
+- Your Resource Groups
 
       Get-AzResourceGroup
 
+![IMGBICEP](images/4.png)
  
 #### TASK 2:  
 - Create your first Template for a Storage Account: [Microsoft.Storage/storageAccounts - Bicep, ARM template & Terraform AzAPI reference | Microsoft Docs](https://learn.microsoft.com/en-us/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep)
+
+[BICEP STORAGE ACCOUNT](storageaccount.bicep)
+
+![IMGBICEP](images/5.png)
+
+![IMGBICEP](images/6.png)
+
+[ARM TEMPLATE STORAGE ACCOUNT](storageaccount.json)
+
 - The Template should have a Parameter for the Name of the Storage Account  
-- Deploy the Template to your Resource Group with PowerShell 
-- Extend the Template to create a blob Container 
+- Deploy the Template to your Resource Group with PowerShell
+
+![IMGBICEP](images/7.png)
+
+![IMGBICEP](images/8.png)
+
+- Extend the Template to create a blob Container
+  
+![IMGBICEP](images/9.png)
