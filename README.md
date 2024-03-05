@@ -81,6 +81,7 @@ They allow you to connect to resources that support Azure AD authentication, but
   
       Connect-AzAccount
 
+
       Get-AzResourceGroup
 
  
