@@ -142,8 +142,14 @@ Task 4: Write a PowerShell Script to deploy all stages. You want to only deploy 
 
             ./createWebApp.ps1 -Environment dev
 
+![DevImage](images/9.png)
+
             ./createWebApp.ps1 -Environment prod
 
+
+
             ./createWebApp.ps1 -Environment test
+
+
 
 Task 5: short documentation why you choose the resource and what other options you found. Compare the different Features 
