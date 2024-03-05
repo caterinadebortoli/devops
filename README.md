@@ -115,3 +115,19 @@ They allow you to connect to resources that support Azure AD authentication, but
 - Extend the Template to create a blob Container
   
 ![IMGBICEP](images/9.png)
+
+
+#### Userstory 1: 
+As a User I want to be able to access the application on all my devices without the need of an installation.  
+Therefore, I would use my browser and we need to create a resource to host a website.  
+Task 1: Find a Resource to host a website on it 
+
+[Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/overview)
+
+Task 2: Create a Resource Template for it 
+
+[Resource Template](Userstory1/appservice.json)
+
+Task 3: Create Parameter Files for dev, test and prod resources 
+Task 4: Write a PowerShell Script to deploy all stages. You want to only deploy one stage per execution (./createWebApp.ps1 -Environment dev) 
+Task 5: short documentation why you choose the resource and what other options you found. Compare the different Features 
