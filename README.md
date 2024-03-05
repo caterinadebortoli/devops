@@ -74,11 +74,18 @@ They allow you to connect to resources that support Azure AD authentication, but
 - Install Powershell Core with Azure Extension:
   [Installing PowerShell on Windows - PowerShell | Microsoft Docs ](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2)
   [Install the Azure Az PowerShell module | Microsoft Docs ](https://learn.microsoft.com/en-us/powershell/azure/install-azure-powershell?view=azps-11.3.0&viewFallbackFrom=azps-8.2.0)
-- Authenticate with Azure to your Subscription and Resource Group 
+  
+      Install-Module -Name Az -Repository PSGallery -Force -AllowClobber
+  
+- Authenticate with Azure to your Subscription and Resource Group
+  
+      Connect-AzAccount
+
+      Get-AzResourceGroup
 
  
 #### TASK 2:  
-- Create your first Template for a Storage Account: [Microsoft.Storage/storageAccounts - Bicep, ARM template & Terraform AzAPI reference | Microsoft Docs](https://learn.microsoft.com/en-us/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep) 
+- Create your first Template for a Storage Account: [Microsoft.Storage/storageAccounts - Bicep, ARM template & Terraform AzAPI reference | Microsoft Docs](https://learn.microsoft.com/en-us/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep)
 - The Template should have a Parameter for the Name of the Storage Account  
 - Deploy the Template to your Resource Group with PowerShell 
 - Extend the Template to create a blob Container 
