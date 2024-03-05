@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.25.53.49325",
+      "templateHash": "13365845750135620895"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-01-01",
+      "name": "caterinastorage",
+      "location": "West US",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "BlobStorage",
+      "properties": {
+        "accessTier": "Cool",
+        "allowBlobPublicAccess": false,
+        "allowCrossTenantReplication": true,
+        "allowedCopyScope": "AAD",
+        "allowSharedKeyAccess": true
+      }
+    }
+  ]
+}
