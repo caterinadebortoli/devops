@@ -130,6 +130,20 @@ Task 2: Create a Resource Template for it
 
 Task 3: Create Parameter Files for dev, test and prod resources 
 
+[Dev parameter file](Userstory1/dev_parameters.yaml)
+
+[Test parameter file](Userstory1/test_parameters.yaml)
+
+[Prod parameter file](Userstory1/prod_parameters.yaml)
 
 Task 4: Write a PowerShell Script to deploy all stages. You want to only deploy one stage per execution (./createWebApp.ps1 -Environment dev) 
+
+[Powershell Script](Userstory1/createWebApp.ps1)
+
+            ./createWebApp.ps1 -Environment dev
+
+            ./createWebApp.ps1 -Environment prod
+
+            ./createWebApp.ps1 -Environment test
+
 Task 5: short documentation why you choose the resource and what other options you found. Compare the different Features 

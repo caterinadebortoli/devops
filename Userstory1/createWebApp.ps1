@@ -10,7 +10,7 @@ if (-not ($validEnvironments -contains $Environment)) {
 }
 
 # Load parameters from YAML file based on environment
-$parametersFile = "$PSScriptRoot\$Environment\_parameters.yaml"
+$parametersFile = "$PSScriptRoot\${Environment}_parameters.yaml"
 if (-not (Test-Path $parametersFile)) {
     Write-Error "Parameter file '$parametersFile' not found."
     exit
