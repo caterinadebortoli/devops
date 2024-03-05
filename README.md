@@ -66,3 +66,13 @@ You can configure a GitHub Actions workflow to be triggered when an event occurs
 ##### 3. Service Principal - Azure Deployment
 Service principals serve as the application’s identity in Azure DevOps, where we track what permissions it has in each organization, project, team, etc. 
 They allow you to connect to resources that support Azure AD authentication, but they eliminate the need for developers to manage any credentials.
+
+
+#### TASK 1
+- Install Visual Studio Code and Bicep for Resource Templates
+- Understand Bicep [Bicep language for deploying Azure resources - Azure Resource Manager | Microsoft Docs](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
+- Install Powershell Core with Azure Extension:
+  [Installing PowerShell on Windows - PowerShell | Microsoft Docs ](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2)
+  [Install the Azure Az PowerShell module | Microsoft Docs ](https://learn.microsoft.com/en-us/powershell/azure/install-azure-powershell?view=azps-11.3.0&viewFallbackFrom=azps-8.2.0)
+- Authenticate with Azure to your Subscription and Resource Group 
+
