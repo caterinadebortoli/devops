@@ -152,3 +152,18 @@ Task 4: Write a PowerShell Script to deploy all stages. You want to only deploy 
 ![DevImage](images/10.png)
 
 Task 5: short documentation why you choose the resource and what other options you found. Compare the different Features 
+
+Balanced hosting solution | Simplified hosting solution |
+--- | ---
+Code-first hosting solutions are designed to host code. You can deploy your code directly to the hosting solution.
+
+Azure App service | Azure Static Web Apps
+always runs in an App Service plan. In addition, Azure Functions also has the option of running in an App Service plan. An App Service plan defines a set of compute resources for a web app to run.
+
+When you create an App Service plan in a certain region (for example, West Europe), a set of compute resources is created for that plan in that region. Whatever apps you put into this App Service plan run on these compute resources as defined by your App Service plan. Each App Service plan defines:
+
+Operating System (Windows, Linux)
+Region (West US, East US, and so on)
+Number of VM instances
+Size of VM instances (Small, Medium, Large)
+Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2) | Low-code hosting solutions are designed to allow you to bring your code functionality without having to manage the application infrastructure.
