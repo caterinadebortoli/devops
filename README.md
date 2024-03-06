@@ -160,4 +160,6 @@ Task 5: short documentation why you choose the resource and what other options y
 | Azure App Service | Azure Static Web Apps |
 | Always runs in an App Service plan. In addition, Azure Functions also has the option of running in an App Service plan. An App Service plan defines a set of compute resources for a web app to run. When you create an App Service plan in a certain region (for example, West Europe), a set of compute resources is created for that plan in that region. Whatever apps you put into this App Service plan run on these compute resources as defined by your App Service plan. Each App Service plan defines: Operating System (Windows, Linux) Region (West US, East US, and so on) Number of VM instances Size of VM instances (Small, Medium, Large) Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2) | Low-code hosting solutions are designed to allow you to bring your code functionality without having to manage the application infrastructure. |
 
+I chose App Service because I think it is the service which provides the most flexibility to host a web app and with it you do not need to worry about the infrastructure of your app.
+
 [Other resources](https://learn.microsoft.com/en-us/azure/developer/intro/hosting-apps-on-azure)
