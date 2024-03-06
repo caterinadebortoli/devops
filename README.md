@@ -140,18 +140,19 @@ Task 4: Write a PowerShell Script to deploy all stages. You want to only deploy 
 
 [Powershell Script](Userstory1/createWebApp.ps1)
 
-            ./createWebApp.ps1 -Environment dev
--
--
-            ./createWebApp.ps1 -Environment prod
--
--
-            ./createWebApp.ps1 -Environment test
+ -           ./createWebApp.ps1 -Environment dev
+
+
+ -           ./createWebApp.ps1 -Environment prod
+
+
+ -           ./createWebApp.ps1 -Environment test
 
 
 ![DevImage](images/10.png)
 
 Task 5: short documentation why you choose the resource and what other options you found. Compare the different Features 
+<<<<<<< HEAD
 
 Balanced hosting solution | Simplified hosting solution |
 --- | ---
@@ -167,3 +168,5 @@ Region (West US, East US, and so on)
 Number of VM instances
 Size of VM instances (Small, Medium, Large)
 Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2) | Low-code hosting solutions are designed to allow you to bring your code functionality without having to manage the application infrastructure.
+=======
+>>>>>>> a1d4ee7ae3237efc171cb7a5b80bf7e174508f3a
