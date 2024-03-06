@@ -1,0 +1,4 @@
+name: "test-IotHub-caterinadb"
+resource_group: "CaterinaB-rg"
+sku_capacity: 100
+sku_name: "B1"

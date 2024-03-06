@@ -20,7 +20,6 @@ $parameters = Get-Content -Path $parametersFile | ConvertFrom-Yaml
 
 # Azure login
 Connect-AzAccount
-
 $subscription_id = Read-Host 'Put your subscription id' 
 
 Select-AzSubscription -SubscriptionId $subscription_id
@@ -28,21 +27,25 @@ Select-AzSubscription -SubscriptionId $subscription_id
 # Create or select resource group
 $resourceGroup = $parameters.resource_group
 if (-not (Get-AzResourceGroup -Name $resourceGroup -ErrorAction SilentlyContinue)) {
-     Write-Error "Resource group $resourceGroup does not exist"
-     exit 
+    Write-Error "Resource group $resourceGroup does not exist"
+    exit
+
 } else {
     Write-Host "Using existing resource group: $resourceGroup"
 }
 
-$appServicePlan = $parameters.app_service_plan
-$tier = $parameters.tier
-$appName = $parameters.app_name
-
+$name = $parameters.name
+$sku_name = $parameters.sku_name
+$sku_capacity=$parameters.sku_capacity
+# Create IoTHub
+# Parameters for Bicep template
 $bicepParams = @{
-    'app_name' = $appName
-    'app_service_plan' = $appServicePlan
-    'tier' = $tier
+    'name' = $name
+    'sku_name' = $sku_name
+    'sku_capacity' = $sku_capacity
 }
 
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup -TemplateFile "appservice.json" -TemplateParameterObject $bicepParams -Location "West Europe"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup -TemplateFile "IoTHub.json" -TemplateParameterObject $bicepParams -Location "West Europe"
+
+

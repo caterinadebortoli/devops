@@ -5,24 +5,33 @@
     "_generator": {
       "name": "bicep",
       "version": "0.25.53.49325",
-      "templateHash": "2200530490115348324"
+      "templateHash": "9794150405573540279"
     }
   },
   "parameters": {
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]"
+    },
+    "name": {
+      "type": "string"
+    },
+    "sku_name": {
+      "type": "string"
+    },
+    "sku_capacity": {
+      "type": "int"
     }
   },
   "resources": [
     {
       "type": "Microsoft.Devices/IotHubs",
       "apiVersion": "2022-04-30-preview",
-      "name": "IotHub-caterinadb",
+      "name": "[parameters('name')]",
       "location": "[parameters('location')]",
       "sku": {
-        "capacity": 100,
-        "name": "B1"
+        "capacity": "[parameters('sku_capacity')]",
+        "name": "[parameters('sku_name')]"
       }
     }
   ]

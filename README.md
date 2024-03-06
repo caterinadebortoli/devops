@@ -168,6 +168,7 @@ I chose App Service because I think it is the service which provides the most fl
 #### Userstory 2:
 As an Admin, I want to connect devices to the application. The Devices are sending [MQTT](https://mqtt.org/) Messages, which are needed in the Application. 
 We need an Endpoint in Azure, which receives all the IoT messages. 
+
 Task 1: Find a Resource to receive IoT messages
 
 [Azure IoT Hub](https://learn.microsoft.com/en-us/azure/iot-hub/iot-concepts-and-iot-hub)
@@ -179,10 +180,30 @@ Task 2: Create a Resource Template for it
 ![IoTHub](images/11.png)
 
 Task 3: Create Parameter Files for dev, test and prod resources
+
+[Dev parameter file](Userstory2/dev_parameters.yaml)
+
+[Test parameter file](Userstory2/test_parameters.yaml)
+
+[Prod parameter file](Userstory2/prod_parameters.yaml)
+
 Task 4: Extend the Deployment Script for this resource
+
+[Powershell Script](Userstory2/createIoTHub.ps1)
+
+
+ -           ./createIoTHub.ps1 -Environment dev
+
+
+ -           ./createIoTHub.ps1 -Environment prod
+
+
+ -           ./createIoTHub.ps1 -Environment test
+
  
 #### Userstory 3:
 As a Developer I want to display the Data we receive from the Devices. I only can display data which is stored in a storage. 
+
 Task 1: Extend the IoTResource Template so it sends the Data to a Storage Account
 Task 2: Find a Way to test this route. Send Message and see the Result in Storage Account.
 Task 3: Automate the test to validate the function for the future 
