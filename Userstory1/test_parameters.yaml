@@ -1,3 +1,4 @@
-app_name: "my-web-app-test"
-app_service_plan: "test-service-plan"
+app_name: "my-web-app-test-caterinadb"
+app_service_plan: "test-service-plan-caterinadb"
 resource_group: "rg-caterina-debortoli"
+tier : "Basic"

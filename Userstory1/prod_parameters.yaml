@@ -1,3 +1,4 @@
-app_name: "my-web-app-prod"
-app_service_plan: "prod-service-plan"
+app_name: "my-web-app-prod-caterinadb"
+app_service_plan: "prod-service-plan-caterinadb"
 resource_group: "rg-caterina-debortoli"
+tier: "Standard"

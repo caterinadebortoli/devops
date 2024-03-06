@@ -31,6 +31,7 @@ if (-not (Get-AzResourceGroup -Name $resourceGroup -ErrorAction SilentlyContinue
 
 # Create App Service Plan
 $appServicePlan = $parameters.app_service_plan
+$tier = $parameters.
 if (-not (Get-AzAppServicePlan -Name $appServicePlan -ResourceGroupName $resourceGroup -ErrorAction SilentlyContinue)) {
     New-AzAppServicePlan -Name $appServicePlan -ResourceGroupName $resourceGroup -Location "West Europe" -Tier "Basic"
 } else {

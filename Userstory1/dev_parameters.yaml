@@ -1,3 +1,4 @@
-app_name: "my-web-app-dev"
-app_service_plan: "dev-service-plan"
+app_name: "my-web-app-dev-caterinadb"
+app_service_plan: "dev-service-plan-caterinadb"
 resource_group: "rg-caterina-debortoli"
+tier: "Basic"
