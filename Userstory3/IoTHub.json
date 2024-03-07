@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.25.53.49325",
-      "templateHash": "12202277016159562808"
+      "templateHash": "7700669603687140797"
     }
   },
   "parameters": {
@@ -65,8 +65,7 @@
     "storageAccountName": "[format('{0}{1}', toLower(parameters('demoName')), uniqueString(resourceGroup().id))]",
     "storageEndpoint": "[format('{0}StorageEndpont', parameters('demoName'))]",
     "storageContainerName": "[format('{0}results', toLower(parameters('demoName')))]",
-    "functionAppName": "[parameters('demoName')]",
-    "hostingPlanName": "[parameters('demoName')]",
+    "functionAppName": "caterinadbfunctionappdev",
     "applicationInsightsName": "[parameters('demoName')]",
     "functionWorkerRuntime": "[parameters('runtime')]"
   },
@@ -166,17 +165,6 @@
       ]
     },
     {
-      "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2021-03-01",
-      "name": "[variables('hostingPlanName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Y1",
-        "tier": "Dynamic"
-      },
-      "properties": {}
-    },
-    {
       "type": "Microsoft.Web/sites",
       "apiVersion": "2021-03-01",
       "name": "[variables('functionAppName')]",
@@ -186,7 +174,7 @@
         "type": "SystemAssigned"
       },
       "properties": {
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "serverFarmId": "/subscriptions/ef9d4a0a-9c7c-445f-8332-4896b5b45988/resourceGroups/rg-caterina-debortoli/providers/Microsoft.Web/serverfarms/dev-service-plan-caterinadb",
         "siteConfig": {
           "appSettings": [
             {
@@ -225,7 +213,6 @@
       },
       "dependsOn": [
         "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]",
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ]
     },

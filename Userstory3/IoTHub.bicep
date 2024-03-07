@@ -31,8 +31,7 @@ var storageContainerName = '${toLower(demoName)}results'
 ])
 param runtime string = 'python'
 
-var functionAppName = demoName
-var hostingPlanName = demoName
+var functionAppName = 'caterinadbfunctionappdev'
 var applicationInsightsName = demoName
 var functionWorkerRuntime = runtime
 
@@ -128,15 +127,6 @@ resource IoTHub 'Microsoft.Devices/IotHubs@2021-07-02' = {
 
 // Azure Function Creation
 
-resource hostingPlan 'Microsoft.Web/serverfarms@2021-03-01' = {
-  name: hostingPlanName
-  location: location
-  sku: {
-    name: 'Y1'
-    tier: 'Dynamic'
-  }
-  properties: {}
-}
 
 resource functionApp 'Microsoft.Web/sites@2021-03-01' = {
   name: functionAppName
@@ -146,7 +136,7 @@ resource functionApp 'Microsoft.Web/sites@2021-03-01' = {
     type: 'SystemAssigned'
   }
   properties: {
-    serverFarmId: hostingPlan.id
+    serverFarmId: '/subscriptions/ef9d4a0a-9c7c-445f-8332-4896b5b45988/resourceGroups/rg-caterina-debortoli/providers/Microsoft.Web/serverfarms/dev-service-plan-caterinadb'
     siteConfig: {
       appSettings: [
         {
