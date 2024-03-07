@@ -211,14 +211,9 @@ Task 1: Extend the IoTResource Template so it sends the Data to a Storage Accoun
 [Powershell Script](Userstory3/createconnectedIoTHub.ps1)
 
 
- -           ./createconnectedIoTHub.ps1 -Environment dev
+                ./createconnectedIoTHub.ps1 
 
 
- -           ./createconnectedIoTHub.ps1 -Environment prod
-
-
- -           ./createconnectedIoTHub.ps1 -Environment test
- 
 
 Task 2: Find a Way to test this route. Send Message and see the Result in Storage Account.
 Task 3: Automate the test to validate the function for the future 
