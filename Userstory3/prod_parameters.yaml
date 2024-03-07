@@ -2,3 +2,5 @@ name: "prod-IotHub-caterinadb"
 resource_group: "rg-caterina-debortoli"
 sku_capacity: 200
 sku_name: "S1"
+storageEndpoint: "caterina-StorageEndpoint"
+containerName: "container"

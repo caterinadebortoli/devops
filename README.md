@@ -205,6 +205,21 @@ Task 4: Extend the Deployment Script for this resource
 As a Developer I want to display the Data we receive from the Devices. I only can display data which is stored in a storage. 
 
 Task 1: Extend the IoTResource Template so it sends the Data to a Storage Account
+
+[Resource Template](Userstory3/IoTHub.json)
+
+[Powershell Script](Userstory3/createconnectedIoTHub.ps1)
+
+
+ -           ./createconnectedIoTHub.ps1 -Environment dev
+
+
+ -           ./createconnectedIoTHub.ps1 -Environment prod
+
+
+ -           ./createconnectedIoTHub.ps1 -Environment test
+ 
+
 Task 2: Find a Way to test this route. Send Message and see the Result in Storage Account.
 Task 3: Automate the test to validate the function for the future 
 Task 4: Document the usage of your script so everybody can use it

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.25.53.49325",
+      "templateHash": "1742377669815094705"
+    }
+  },
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "name": {
+      "type": "string"
+    },
+    "sku_name": {
+      "type": "string"
+    },
+    "sku_capacity": {
+      "type": "int"
+    },
+    "d2cPartitions": {
+      "type": "int",
+      "defaultValue": 4
+    },
+    "connectionstring": {
+      "type": "string",
+      "defaultValue": "DefaultEndpointsProtocol=https;AccountName=caterinastorage;AccountKey=T7Yppe/DH+qolddH3w6I97E6R/K/uBrjOOlDp8bRWeHjhZ2ETJv9gxF/YjRL/HPBDtnX4pXjWmty+AStG62OpA==;EndpointSuffix=core.windows.net"
+    },
+    "containerName": {
+      "type": "string"
+    },
+    "storageEndpoint": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Devices/IotHubs",
+      "apiVersion": "2022-04-30-preview",
+      "name": "[parameters('name')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "capacity": "[parameters('sku_capacity')]",
+        "name": "[parameters('sku_name')]"
+      },
+      "properties": {
+        "eventHubEndpoints": {
+          "events": {
+            "retentionTimeInDays": 1,
+            "partitionCount": "[parameters('d2cPartitions')]"
+          }
+        },
+        "routing": {
+          "endpoints": {
+            "storageContainers": [
+              {
+                "connectionString": "[parameters('connectionstring')]",
+                "containerName": "[parameters('containerName')]",
+                "batchFrequencyInSeconds": 100,
+                "maxChunkSizeInBytes": 104857600,
+                "encoding": "JSON",
+                "name": "[parameters('storageEndpoint')]"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
