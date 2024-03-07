@@ -29,7 +29,7 @@ var storageContainerName = '${toLower(demoName)}results'
   'java'
   'python'
 ])
-param runtime string = 'python'
+param runtime string = 'dotnet'
 
 var functionAppName = 'caterinadbfunctionappdev'
 var applicationInsightsName = demoName
@@ -43,12 +43,17 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
     name: 'Standard_LRS'
   }
   kind: 'Storage'
+  properties: {
+    allowBlobPublicAccess: true
+    allowSharedKeyAccess: true
+  
+  }
 }
 
 resource container 'Microsoft.Storage/storageAccounts/blobServices/containers@2021-08-01' = {
   name: '${storageAccountName}/default/${storageContainerName}'
   properties: {
-    publicAccess: 'None'
+    publicAccess: 'Container'
   }
   dependsOn: [
     storageAccount

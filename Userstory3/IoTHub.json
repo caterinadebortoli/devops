@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.25.53.49325",
-      "templateHash": "7700669603687140797"
+      "templateHash": "7624501392081498320"
     }
   },
   "parameters": {
@@ -48,7 +48,7 @@
     },
     "runtime": {
       "type": "string",
-      "defaultValue": "python",
+      "defaultValue": "dotnet",
       "allowedValues": [
         "node",
         "dotnet",
@@ -78,14 +78,18 @@
       "sku": {
         "name": "Standard_LRS"
       },
-      "kind": "Storage"
+      "kind": "Storage",
+      "properties": {
+        "allowBlobPublicAccess": true,
+        "allowSharedKeyAccess": true
+      }
     },
     {
       "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
       "apiVersion": "2021-08-01",
       "name": "[format('{0}/default/{1}', variables('storageAccountName'), variables('storageContainerName'))]",
       "properties": {
-        "publicAccess": "None"
+        "publicAccess": "Container"
       },
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
