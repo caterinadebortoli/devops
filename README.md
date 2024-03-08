@@ -216,6 +216,11 @@ Task 1: Extend the IoTResource Template so it sends the Data to a Storage Accoun
 
 
 Task 2: Find a Way to test this route. Send Message and see the Result in Storage Account.
+
+![Img](images/16.png)
+
+![Img](images/15.png)
+
 Task 3: Automate the test to validate the function for the future 
 Task 4: Document the usage of your script so everybody can use it
 
