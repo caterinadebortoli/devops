@@ -223,6 +223,20 @@ Task 2: Find a Way to test this route. Send Message and see the Result in Storag
 
 Task 3: Automate the test to validate the function for the future 
 
+See the [powershell file](Userstory3.1/createconnectedIoTHub.ps1) and use your own variables.
+
+                  $iotHubName = "<Name of the IoT Hub>"
+                  $storageAccountName = "<Name of the storage Account>"
+                  $deviceId = "<TestingDevice>"
+                  $message = "<Testing Message>"
+                  $containerName = "<Name of the container>"
+
+Run the commands
+
+                  cd Userstory3.1
+-
+                  ./createconnectedIoTHub.ps1 
+
 Task 4: Document the usage of your script so everybody can use it
 
 Fill the [YAML Parameter file](Userstory3.2/parameters.yaml) to use your own parameters.
