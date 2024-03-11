@@ -223,9 +223,13 @@ Task 2: Find a Way to test this route. Send Message and see the Result in Storag
 
 Task 3: Automate the test to validate the function for the future 
 
-
 Task 4: Document the usage of your script so everybody can use it
 
+Fill the [YAML Parameter file](Userstory3.2/parameters.yaml) to use your own parameters.
+
+Run the command
+
+                  ./createconnectedIoTHub.ps1 
 
 
 #### Userstory 4:

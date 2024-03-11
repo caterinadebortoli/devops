@@ -1,0 +1,31 @@
+#The datacenter to use for the deployment
+location: ""
+
+#The SKU to use for the IoT Hub
+skuName: ""
+
+#The number of IoT Hub units
+skuUnits: 1
+
+#Partitions used for the event stream
+d2cPartitions: 4
+
+#IoT Hub and Storage Account configuration
+iotHubName: ""
+storageAccountName: ""
+storageEndpoint: ""
+storageContainerName: ""
+
+#Azure Function configuration
+
+functionAppName: ""
+applicationInsightsName: ""
+
+#The language worker runtime to load in the function app
+runtime: ""
+
+connectionString: ""
+
+hostingPlanName: ""
+
+resource_group: ""
