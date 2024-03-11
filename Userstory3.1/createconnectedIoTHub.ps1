@@ -1,49 +1,41 @@
-# Load parameters from YAML file based on environment
-$parametersFile = "parameters.yaml"
-if (-not (Test-Path $parametersFile)) {
-    Write-Error "Parameter file '$parametersFile' not found."
-    exit
+$iotHubName = "Name of the IoT Hub"
+$storageAccountName = "Name of the storage Account"
+$deviceId = "TestingDevice"
+$message = "Testing Message"
+$containerName = "Name of the container"
+
+$destinationPath = "test.json"
+
+function SendAndTestMessageToDev {
+    Write-Host "Sending Message to Dev environment"
+
+    # Getting the time of sending
+    $date = Get-Date
+    $minutes = $date.Minute
+
+    # Sending Message
+    az iot device send-d2c-message --hub-name $iotHubName --device-id $deviceId --data $message
+
+    Write-Host "Testing if Message was Delivered Successfully"
+
+    # Clearing file
+    Clear-Content -Path $destinationPath
+
+    # Downloading blob to file
+    az storage blob download --account-name $storageAccountName --container-name $containerName --name ("$minutes.json") --file $destinationPath
+
+    # Getting the content of the blob from File
+    $string = Get-Content -Path $destinationPath -Raw
+
+    # Checking if file contains the message
+    if ($string.Equals('') -or $string.Equals($null)){
+        if ($string.Contains($message)) {
+            Write-Output "Test Successfull"
+        } else {
+            Write-Output "Test Unsuccessfull"
+        }
+    }
 }
 
-$parameters = Get-Content -Path $parametersFile | ConvertFrom-Yaml
-
-# Azure login
-Connect-AzAccount
-$subscription_id = Read-Host 'Put your subscription id' 
-
-Select-AzSubscription -SubscriptionId $subscription_id
-
-# Create or select resource group
-$resourceGroup = $parameters.resource_group
-if (-not (Get-AzResourceGroup -Name $resourceGroup -ErrorAction SilentlyContinue)) {
-    Write-Error "Resource group $resourceGroup does not exist"
-    exit
-
-} else {
-    Write-Host "Using existing resource group: $resourceGroup"
-}
-
-
-# Create IoTHub
-# Parameters for Bicep template
-$bicepParams = @{
-    
-    location= $parameters.location
-    skuName= $parameters.skuName
-    skuUnits=$parameters.skuUnits
-    d2cPartitions= $parameters.d2cPartitions
-    iotHubName= $parameters.iotHubName
-    storageAccountName= $parameters.storageAccountName
-    storageEndpoint= $parameters.storageEndpoint
-    storageContainerName= $parameters.storageContainerName
-    functionAppName= $parameters.functionAppName
-    applicationInsightsName= $parameters.applicationInsightsName
-    runtime= $parameters.runtime
-    connectionString= $parameters.connectionString
-    hostingPlanName= $parameters.hostingPlanName
-}
-
-
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup -TemplateFile "IoTHub.json" -TemplateParameterObject $bicepParams 
-
-
+# Call the function
+SendAndTestMessageToDev
