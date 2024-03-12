@@ -16,11 +16,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+          enable-AzPSSession: true
 
       - name: Deploy to Azure
         uses: Azure/cli@v1
         with:
           azcliversion: 2.24.0
           inlineScript: |
-            devops\Userstory3.2\createconnectedIoTHub.ps1
+            .\devops\Userstory3.2\createconnectedIoTHub.ps1
