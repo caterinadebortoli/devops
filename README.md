@@ -2,19 +2,12 @@
 #### Devops practices enable development and operations teams to conceive, build and deliver secure software at top speed, through automation, collaboration, fast feedback, and iterative improvement. 
 
 #### CI 
-Continuous integration is the practice of integrating all your code changes into the main branch of a shared source code repository early and often, automatically testing each change when you commit or merge them, and automatically kicking off a build. With continuous integration, errors and security issues can be identified and fixed more easily, and much earlier in the development process.
-
-By merging changes frequently and triggering automatic testing and validation processes, you minimize the possibility of code conflict, even with multiple developers working on the same application. A secondary advantage is that you don't have to wait long for answers and can, if necessary, fix bugs and security issues while the topic is still fresh in your mind.
-
-Common code validation processes start with a static code analysis that verifies the quality of the code. Once the code passes the static tests, automated CI routines package and compile the code for further automated testing. CI processes should have a version control system that tracks changes so you know the version of the code used.
+Continuous integration is about regularly combining code changes into the primary branch of a shared repository, while automatically testing each change for errors and security flaws. This process ensures that issues are identified and addressed promptly, reducing the risk of conflicts, especially in projects with multiple developers. Additionally, it enables quick bug fixes and security updates, maintaining code quality throughout development. Key validation steps include static code analysis, automated compilation, and testing, all facilitated by version control to track code changes effectively.
 
 #### CD
-Continuous delivery is a software development practice that works in conjunction with CI to automate the infrastructure provisioning and application release process.
+Continuous delivery (CD) complements continuous integration (CI) by automating the setup of infrastructure and the release process for software applications. Once the code has been thoroughly tested and built through CI, CD takes charge of preparing it for deployment to any environment. This includes packaging the code with all necessary components for deployment, be it in testing or production environments.
 
-Once code has been tested and built as part of the CI process, CD takes over during the final stages to ensure it's packaged with everything it needs to deploy to any environment at any time. CD can cover everything from provisioning the infrastructure to deploying the application to the testing or production environment.
-
-With CD, the software is built so that it can be deployed to production at any time. Then you can trigger the deployments manually or move to continuous deployment, where deployments are automated as well.
-Continuous deployment enables organizations to deploy their applications automatically, eliminating the need for human intervention. With continuous deployment, DevOps teams set the criteria for code releases ahead of time and when those criteria are met and validated, the code is deployed into the production environment. This allows organizations to be more nimble and get new features into the hands of users faster.
+In essence, CD ensures that software is ready for deployment at any time, giving teams the flexibility to trigger deployments manually or move towards continuous deployment, where releases are automated. Continuous deployment further streamlines the process by allowing organizations to automatically deploy code to production once predefined criteria are met and validated. This approach accelerates the delivery of new features to users, enhancing organizational agility.
 
 #### IoT (Internet of Things)
 The Internet of Things (IoT) describes the network of physical objects—“things”—that are embedded with sensors, software, and other technologies for the purpose of connecting and exchanging data with other devices and systems over the internet.
@@ -22,20 +15,19 @@ For example Smart home devices, smartwatches, pacemakers, self-driving cars
 
 #### Bicep
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
-Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
 
 #### Azure Subscription
 
 ![SUBSCRIPTION IMG](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/media/organize-resources/scope-levels.png)
 
-Every Azure AD tenant may have multiple Azure subscriptions. The grade of subscription at which the consumer invoiced is depending on consumption. In addition, it enables a logical separation for administrative simplification. A firm can ordinarily have a primary tenant, and each of its cloud-using divisions can have multiple subscriptions for their individual Azure account environments.
+Each Azure Active Directory (AD) tenant can contain several Azure subscriptions. This setup allows for easier management and organization. Typically, a company will have a main tenant, and each department or division that uses cloud services will have its own Azure subscriptions tailored to its specific needs.
 
 #### Azure Resource Groups
 A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. One benefit of using RGs in Azure is grouping related resources that belong to an application together, as they share a unified lifecycle from creation to usage and finally, de-provisioning.
 
 #### Blob Storage Type
 A "blob," which is short for Binary Large Object, is a mass of data in binary form that does not necessarily conform to any file format. 
-That is what Blob storage is optimized for storing this type of data, serving images or documents directly to a browser, storing files for distributed access, streaming video and audio, writing to log files, storing data for backup and restore, disaster recovery, and archiving, storing data for analysis by an on-premises or Azure-hosted service.
+Blob storage is optimized for storing this type of data, serving images or documents directly to a browser, storing files for distributed access, streaming video and audio, writing to log files, storing data for backup and restore, disaster recovery, and archiving, storing data for analysis by an on-premises or Azure-hosted service.
 
 #### Git- Source Control
 ##### 1. Pull Request
@@ -59,9 +51,11 @@ By adding clear messages to each commit, it is easy for yourself (and others) to
 A repository is the most basic element of GitHub. It's a place where you can store your code, your files, and each file's revision history. Repositories can have multiple collaborators and can be either public or private.
 
 ##### 2. Action
-GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
-GitHub Actions goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
-You can configure a GitHub Actions workflow to be triggered when an event occurs in your repository, such as a pull request being opened or an issue being created. Your workflow contains one or more jobs which can run in sequential order or in parallel. Each job will run inside its own virtual machine runner, or inside a container, and has one or more steps that either run a script that you define or run an action, which is a reusable extension that can simplify your workflow.
+GitHub Actions is a tool that helps automate tasks in your software development process, like building, testing, and deploying code. It works by setting up workflows that react to events in your GitHub repository, such as opening a pull request or creating an issue.
+
+These workflows are made up of jobs that can run one after the other or at the same time. Each job runs in its own virtual environment or container and is made up of steps. Steps can be custom scripts or pre-made actions that simplify common tasks.
+
+Beyond just CI/CD, GitHub Actions can respond to a wide range of repository events, making it easy to automate tasks like adding labels to new issues.
 
 ##### 3. Service Principal - Azure Deployment
 Service principals serve as the application’s identity in Azure DevOps, where we track what permissions it has in each organization, project, team, etc. 
