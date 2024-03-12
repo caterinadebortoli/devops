@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+      id-token: write
+      contents: read
+
 jobs:
   deploy:
     runs-on: windows-latest  # Automatically selects a Windows runner
@@ -16,17 +20,12 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-        env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-          AZURE_CORE_COLLECT_TELEMETRY: false
+          auth-type: IDENTITY  
+          creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
 
       - name: Deploy to Azure
         uses: Azure/cli@v1
         with:
-          azcliversion: 2.24.0
+          azcliversion: latest
           inlineScript: |
             .\devops\Userstory3.2\createconnectedIoTHub.ps1
