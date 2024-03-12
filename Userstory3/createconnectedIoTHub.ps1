@@ -12,7 +12,7 @@ if (-not (Get-AzResourceGroup -Name $resourceGroup -ErrorAction SilentlyContinue
 
 } else {
     Write-Host "Using existing resource group: $resourceGroup"
-}
+}                       
 
 # Create IoTHub
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup -TemplateFile "IoTHub.json" 

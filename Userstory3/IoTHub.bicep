@@ -7,7 +7,7 @@ param demoName string = 'caterina'
 param location string = resourceGroup().location
 
 @description('The SKU to use for the IoT Hub.')
-param skuName string = 'S1'
+param skuName string = 'Free'
 
 @description('The number of IoT Hub units.')
 param skuUnits int = 1
@@ -93,7 +93,6 @@ resource IoTHub 'Microsoft.Devices/IotHubs@2021-07-02' = {
         {
           name: 'ContosoStorageRoute'
           source: 'DeviceMessages'
-          condition: 'level="storage"'
           endpointNames: [
             storageEndpoint
           ]

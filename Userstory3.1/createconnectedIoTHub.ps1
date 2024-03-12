@@ -2,8 +2,8 @@
 Connect-AzAccount
 
 # Set variables for IoT Hub and device
-$resourceGroupName = "<YourResourceGroupName>"
-$iothubName = "<YourIoTHubName>"
+$resourceGroupName = "rg-caterina-debortoli"
+$iothubName = "caterinaHubt2bsnxtvdsuak"
 $deviceId = "<YourDeviceId>"
 
 # Get the IoT Hub connection string
