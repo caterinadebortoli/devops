@@ -31,8 +31,5 @@ jobs:
           Connect-AzAccount -ServicePrincipal -Credential $credential -Tenant $servicePrincipal.tenantId
 
       - name: Deploy to Azure
-        uses: Azure/cli@v1
-        with:
-          azcliversion: latest
-          inlineScript: |
-            .\devops\Userstory3.2\createconnectedIoTHub.ps1
+        run: |
+          .\devops\Userstory3.2\createconnectedIoTHub.ps1
