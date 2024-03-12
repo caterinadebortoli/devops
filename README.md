@@ -111,7 +111,7 @@ They allow you to connect to resources that support Azure AD authentication, but
 ![IMGBICEP](images/9.png)
 
 
-#### Userstory 1: 
+#### [Userstory 1](Userstory1): 
 As a User I want to be able to access the application on all my devices without the need of an installation.  
 Therefore, I would use my browser and we need to create a resource to host a website.  
 Task 1: Find a Resource to host a website on it 
@@ -133,6 +133,8 @@ Task 3: Create Parameter Files for dev, test and prod resources
 Task 4: Write a PowerShell Script to deploy all stages. You want to only deploy one stage per execution (./createWebApp.ps1 -Environment dev) 
 
 [Powershell Script](Userstory1/createWebApp.ps1)
+
+             cd Userstory1
 
  -           ./createWebApp.ps1 -Environment dev
 
@@ -159,7 +161,7 @@ I chose App Service because I think it is the service which provides the most fl
 [Other resources](https://learn.microsoft.com/en-us/azure/developer/intro/hosting-apps-on-azure)
 
 
-#### Userstory 2:
+#### [Userstory 2](Userstory2):
 As an Admin, I want to connect devices to the application. The Devices are sending [MQTT](https://mqtt.org/) Messages, which are needed in the Application. 
 We need an Endpoint in Azure, which receives all the IoT messages. 
 
@@ -185,6 +187,7 @@ Task 4: Extend the Deployment Script for this resource
 
 [Powershell Script](Userstory2/createIoTHub.ps1)
 
+              cd Userstory2
 
  -           ./createIoTHub.ps1 -Environment dev
 
@@ -198,13 +201,14 @@ Task 4: Extend the Deployment Script for this resource
 #### Userstory 3:
 As a Developer I want to display the Data we receive from the Devices. I only can display data which is stored in a storage. 
 
-Task 1: Extend the IoTResource Template so it sends the Data to a Storage Account
+[Task 1](Userstory3): Extend the IoTResource Template so it sends the Data to a Storage Account
 
 [Resource Template](Userstory3/IoTHub.json)
 
 [Powershell Script](Userstory3/createconnectedIoTHub.ps1)
 
-
+                cd Userstory3
+---
                 ./createconnectedIoTHub.ps1 
 
 
@@ -215,7 +219,7 @@ Task 2: Find a Way to test this route. Send Message and see the Result in Storag
 
 ![Img](images/15.png)
 
-Task 3: Automate the test to validate the function for the future 
+[Task 3](Userstory3.1): Automate the test to validate the function for the future 
 
 See the [powershell file](Userstory3.1/createconnectedIoTHub.ps1) and use your own variables.
 
@@ -228,7 +232,7 @@ See the [powershell file](Userstory3.1/createconnectedIoTHub.ps1) and use your o
 Run the commands
 
                   cd Userstory3.1
--
+---
                   ./createconnectedIoTHub.ps1 
 
 Task 4: Document the usage of your script so everybody can use it
