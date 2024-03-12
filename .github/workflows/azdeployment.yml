@@ -22,9 +22,9 @@ jobs:
       - name: Login to Azure
         run: |
           $servicePrincipal = @{
-          clientId       = ${{ secrets.AZURE_CLIENT_ID }}
-          clientSecret   = ${{ secrets.AZURE_CLIENT_SECRET }}
-          tenantId       = ${{ secrets.AZURE_TENANT_ID }}
+          clientId       = "${{ secrets.AZURE_CLIENT_ID }}"
+          clientSecret   = "${{ secrets.AZURE_CLIENT_SECRET }}"
+          tenantId       = "${{ secrets.AZURE_TENANT_ID }}"
           }
           Connect-AzAccount -ServicePrincipal -Credential $(Get-Credential -TenantId $servicePrincipal.tenantId -ClientId $servicePrincipal.clientId -ClientSecret $servicePrincipal.clientSecret)
 
