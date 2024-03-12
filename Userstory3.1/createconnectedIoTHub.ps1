@@ -1,41 +1,29 @@
-$iotHubName = "<Name of the IoT Hub>"
-$storageAccountName = "<Name of the storage Account>"
-$deviceId = "<TestingDevice>"
-$message = "<Testing Message>"
-$containerName = "<Name of the container>"
+# Connect to Azure account
+Connect-AzAccount
 
-$destinationPath = "test.json"
+# Set variables for IoT Hub and device
+$resourceGroupName = "<YourResourceGroupName>"
+$iothubName = "<YourIoTHubName>"
+$deviceId = "<YourDeviceId>"
 
-function SendAndTestMessageToDev {
-    Write-Host "Sending Message to Dev environment"
+# Get the IoT Hub connection string
+$iotHub = Get-AzIotHub -ResourceGroupName $resourceGroupName -Name $iothubName
+$connectionString = $iotHub.Properties.HostName
 
-    # Getting the time of sending
-    $date = Get-Date
-    $minutes = $date.Minute
+# Create a new message
+$message = @{
+    deviceId = $deviceId
+    messageId = [Guid]::NewGuid()
+    messageBody = "This is a test message from PowerShell"
+} | ConvertTo-Json
 
-    # Sending Message
-    az iot device send-d2c-message --hub-name $iotHubName --device-id $deviceId --data $message
+# Send the message to IoT Hub
+$endpoint = "devices/{0}/messages/events?api-version=2020-03-13" -f $deviceId
+$uri = "https://$connectionString/$endpoint"
 
-    Write-Host "Testing if Message was Delivered Successfully"
+Invoke-RestMethod -Uri $uri -Headers @{"Authorization"="SharedAccessSignature $($iotHub.Properties.AuthorizationPolicies[0].PrimaryKey)"} -Method POST -Body $message -ContentType "application/json"
 
-    # Clearing file
-    Clear-Content -Path $destinationPath
+Write-Host "Message sent successfully."
 
-    # Downloading blob to file
-    az storage blob download --account-name $storageAccountName --container-name $containerName --name ("$minutes.json") --file $destinationPath
 
-    # Getting the content of the blob from File
-    $string = Get-Content -Path $destinationPath -Raw
 
-    # Checking if file contains the message
-    if ($string.Equals('') -or $string.Equals($null)){
-        if ($string.Contains($message)) {
-            Write-Output "Test Successfull"
-        } else {
-            Write-Output "Test Unsuccessfull"
-        }
-    }
-}
-
-# Call the function
-SendAndTestMessageToDev

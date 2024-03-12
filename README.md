@@ -223,11 +223,10 @@ Task 2: Find a Way to test this route. Send Message and see the Result in Storag
 
 See the [powershell file](Userstory3.1/createconnectedIoTHub.ps1) and use your own variables.
 
-                  $iotHubName = "<Name of the IoT Hub>"
-                  $storageAccountName = "<Name of the storage Account>"
-                  $deviceId = "<TestingDevice>"
-                  $message = "<Testing Message>"
-                  $containerName = "<Name of the container>"
+                  # Set variables for IoT Hub and device
+                  $resourceGroupName = "<YourResourceGroupName>"
+                  $iothubName = "<YourIoTHubName>"
+                  $deviceId = "<YourDeviceId>"
 
 Run the commands
 
