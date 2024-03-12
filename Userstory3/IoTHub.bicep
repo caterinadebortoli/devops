@@ -7,7 +7,7 @@ param demoName string = 'caterina'
 param location string = resourceGroup().location
 
 @description('The SKU to use for the IoT Hub.')
-param skuName string = 'Free'
+param skuName string = 'B1'
 
 @description('The number of IoT Hub units.')
 param skuUnits int = 1
