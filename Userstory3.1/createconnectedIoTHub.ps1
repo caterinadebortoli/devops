@@ -1,5 +1,7 @@
 # Connect to Azure account
-Connect-AzAccount
+az login 
+$subscription_id = Read-Host 'Put your subscription id' 
+az account set --subscription $subscription_id 
 
 # Set variables for IoT Hub and device
 $resourceGroupName = "<YourResourceGroupName>"
@@ -8,8 +10,12 @@ $deviceId = "<YourDeviceId>"
 
 # Get the IoT Hub connection string
 $iotHub = Get-AzIotHub -ResourceGroupName $resourceGroupName -Name $iothubName
-$connectionString = $iotHub.Properties.HostName
 
+# Check if IoT Hub is retrieved successfully
+if ($iotHub -eq $null) {
+    Write-Error "Unable to retrieve IoT Hub. Please check if the IoT Hub exists and the provided information is correct."
+    exit
+}
 # Create a new message
 $message = @{
     deviceId = $deviceId
@@ -17,11 +23,10 @@ $message = @{
     messageBody = "This is a test message from PowerShell"
 } | ConvertTo-Json
 
+Write-Host $message
 # Send the message to IoT Hub
-$endpoint = "devices/{0}/messages/events?api-version=2020-03-13" -f $deviceId
-$uri = "https://$connectionString/$endpoint"
 
-Invoke-RestMethod -Uri $uri -Headers @{"Authorization"="SharedAccessSignature $($iotHub.Properties.AuthorizationPolicies[0].PrimaryKey)"} -Method POST -Body $message -ContentType "application/json"
+az iot device send-d2c-message --hub-name $iothubName --device-id $deviceId --data "$message"
 
 Write-Host "Message sent successfully."
 
