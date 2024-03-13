@@ -32,4 +32,4 @@ jobs:
 
       - name: Deploy to Azure
         run: |
-          .\devops\Userstory3.2\createconnectedIoTHub.ps1
+          .\Userstory3.2\createconnectedIoTHub.ps1
