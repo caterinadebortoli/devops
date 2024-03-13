@@ -26,7 +26,7 @@ $message = @{
 Write-Host $message
 # Send the message to IoT Hub
 
-az iot device send-d2c-message --hub-name $iothubName --device-id $deviceId --data "$message"
+az iot device send-d2c-message --hub-name $iothubName --device-id $deviceId --props '$.ct=application/json;$.ce=utf-8' --data "$message"
 
 Write-Host "Message sent successfully."
 
