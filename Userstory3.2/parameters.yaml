@@ -29,3 +29,5 @@ connectionString: ""
 hostingPlanName: ""
 
 resource_group: ""
+
+subscription_id: ""

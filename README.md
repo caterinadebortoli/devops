@@ -223,6 +223,7 @@ Task 2: Find a Way to test this route. Send Message and see the Result in Storag
 
 See the [powershell file](Userstory3.1/createconnectedIoTHub.ps1) and use your own variables.
 
+                  $subscription_id = "<YourSubscriptionId>" 
                   # Set variables for IoT Hub and device
                   $resourceGroupName = "<YourResourceGroupName>"
                   $iothubName = "<YourIoTHubName>"
@@ -238,6 +239,11 @@ Task 4: Document the usage of your script so everybody can use it
 
 Fill the [YAML Parameter file](Userstory3.2/parameters.yaml) to use your own parameters.
 
+Go to the [powershell file](Userstory3.2/createconnectedIoTHub.ps1) and write the path of your parameters.yaml file.
+
+                  # Load parameters from YAML file based on environment
+                  $parametersFile = "<path of your parameters.yaml file>"
+
 Run the command
 
                   ./createconnectedIoTHub.ps1 
@@ -245,9 +251,30 @@ Run the command
 
 #### Userstory 4:
 As a Product Owner I want to have all the code for the application to be stored in a GitHub Repository. Also, there should be a Deployment from the Main Branch automated on the Azure Resource Group. Authentication should be done with a Service Principal
-Task 0: Create a GitHub Account if you don’t have one already. 
-Task 1: Create a Repository in GitHub. It can be a private one for your User.
+Task 0: [Create a GitHub Account](https://github.com/) if you don’t have one already. 
+Task 1: Create a [Repository](https://github.com/caterinadebortoli/devops.git) in GitHub. It can be a private one for your User.
 Task 2: Sync your Repository to your local machine and push all the Templates, Scripts and Documentation to it
-Task 3: Setup Service Principal Connection to Azure
+
+Run the command
+
+                  git clone https://github.com/caterinadebortoli/devops.git
+
+
+Task 3: [Setup Service Principal Connection to Azure](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux)
+
+
 Task 4: Create a GitHub Action to Deploy your Templates. 
+
+Here you can find the [Deployment Action](.github/workflows/azdeployment.yml)
+Make sure to add all the powershell scripts that you need to deploy your templates.
+
+        # write the absolute paths to your powershell scripts
+        run: |
+          "<1st script's absolute path>"
+          "<2st script's absolute path>"
+
 Task 5: Make the Deployment triggered by a commit to the main Branch. 
+
+
+
+![IMG](images/18.png)

@@ -1,6 +1,6 @@
 # Connect to Azure account
 az login 
-$subscription_id = Read-Host 'Put your subscription id' 
+$subscription_id = "<YourSubscriptionId>" 
 az account set --subscription $subscription_id 
 
 # Set variables for IoT Hub and device

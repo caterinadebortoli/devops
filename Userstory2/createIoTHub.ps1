@@ -20,7 +20,7 @@ $parameters = Get-Content -Path $parametersFile | ConvertFrom-Yaml
 
 # Azure login
 Connect-AzAccount
-$subscription_id = Read-Host 'Put your subscription id' 
+$subscription_id = $parameters.subscription_id 
 
 Select-AzSubscription -SubscriptionId $subscription_id
 

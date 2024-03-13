@@ -1,3 +1,5 @@
+# GitHub Action to deploy all your templates
+
 name: Azure Deployment
 
 on:
@@ -32,5 +34,9 @@ jobs:
 
       - name: Deploy to Azure
         shell: pwsh
+        
+        # here you can add all the powershell scripts that you want to run
+        # write the absolute paths to your powershell scripts
         run: |
-          "C:\Users\Caterina.DeBortoli\devops\Userstory3.2\createconnectedIoTHub.ps1"
+          "<1st script's absolute path>"
+          "<2st script's absolute path>"

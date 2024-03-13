@@ -1,5 +1,5 @@
 # Load parameters from YAML file based on environment
-$parametersFile = "parameters.yaml"
+$parametersFile = "<path of your parameters.yaml file>"
 if (-not (Test-Path $parametersFile)) {
     Write-Error "Parameter file '$parametersFile' not found."
     exit
@@ -9,9 +9,9 @@ $parameters = Get-Content -Path $parametersFile | ConvertFrom-Yaml
 
 # Azure login
 Connect-AzAccount
-$subscription_id = Read-Host 'Put your subscription id' 
+$Subscription_Id= $parameters.subscription_id
 
-Select-AzSubscription -SubscriptionId $subscription_id
+Select-AzSubscription -SubscriptionId $Subscription_Id
 
 # Create or select resource group
 $resourceGroup = $parameters.resource_group
